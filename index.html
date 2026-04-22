@@ -3,147 +3,166 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0f0f14" />
+  <meta name="theme-color" content="#0a0a0f" />
+  <meta name="application-name" content="VidGrab" />
+  <meta name="apple-mobile-web-app-title" content="VidGrab" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-TileColor" content="#7c3aed" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="author" content="RGC Digital LLC" />
 
-  <title>VidGrab - Pro Video Downloader for Vimeo, HLS, MP4 & More | $9.99 Lifetime</title>
-  <meta name="description" content="Download videos from Vimeo, Bunny.net, HLS streams, MP4 and any web page in one click. Pay $9.99 once, own forever. 5 free downloads + 3-day trial. Built for creators, educators and marketers." />
-  <meta name="keywords" content="video downloader, chrome extension, vimeo downloader, hls downloader, m3u8 downloader, bunny.net downloader, mp4 downloader, save online video" />
+  <title>VidGrab: Pro Video Downloader for Vimeo, HLS, MP4 | $9.99 Lifetime</title>
+  <meta name="description" content="One-click downloads from Vimeo, Bunny.net, HLS streams and MP4. Pay $9.99 once, own forever. No subscription. 5 free + 3-day unlimited trial. Built for creators." />
+  <meta name="keywords" content="video downloader, chrome extension, vimeo downloader, hls downloader, m3u8 downloader, bunny.net downloader, mp4 downloader, save online video, save vimeo video, download m3u8 stream, course downloader" />
   <link rel="canonical" href="https://vidgrab.app/" />
   <link rel="alternate" hreflang="en" href="https://vidgrab.app/" />
   <link rel="alternate" hreflang="x-default" href="https://vidgrab.app/" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="VidGrab" />
-  <meta property="og:title" content="VidGrab - Pro Video Downloader. Pay once, own forever." />
-  <meta property="og:description" content="Download videos from Vimeo, Bunny.net, HLS, MP4 in one click. $9.99 lifetime. Free 3-day trial." />
+  <meta property="og:title" content="VidGrab: Pro Video Downloader. Pay once, own forever." />
+  <meta property="og:description" content="One-click downloads from Vimeo, Bunny.net, HLS, MP4. $9.99 lifetime, no subscription. Free 3-day trial." />
   <meta property="og:url" content="https://vidgrab.app/" />
   <meta property="og:image" content="https://vidgrab.app/assets/og-image.png" />
+  <meta property="og:image:secure_url" content="https://vidgrab.app/assets/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="VidGrab - Pro video downloader. Save any video. Once. For life. $9.99 lifetime." />
+  <meta property="og:locale" content="en_US" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="VidGrab - Pro Video Downloader" />
-  <meta name="twitter:description" content="Download videos from Vimeo, Bunny.net, HLS, MP4 in one click. $9.99 lifetime." />
+  <meta name="twitter:site" content="@vidgrabapp" />
+  <meta name="twitter:title" content="VidGrab: Pro Video Downloader" />
+  <meta name="twitter:description" content="One-click downloads from Vimeo, Bunny.net, HLS, MP4. $9.99 lifetime." />
   <meta name="twitter:image" content="https://vidgrab.app/assets/og-image.png" />
+  <meta name="twitter:image:alt" content="VidGrab Pro video downloader" />
 
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <!-- Search Console verification: replace content with your token after claiming the domain -->
+  <!-- <meta name="google-site-verification" content="YOUR_TOKEN_HERE" /> -->
+  <!-- <meta name="msvalidate.01" content="YOUR_BING_TOKEN_HERE" /> -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-          colors: {
-            surface: { dark: '#0a0a0f', card: '#14141c', elevated: '#1d1d28' },
-            accent: { purple: '#7c3aed', blue: '#2563eb', amber: '#f59e0b' },
-          },
-          animation: {
-            'gradient-shift': 'gradientShift 8s ease infinite',
-            'float': 'float 6s ease-in-out infinite',
-            'fade-up': 'fadeUp 0.8s ease-out forwards',
-          },
-          keyframes: {
-            gradientShift: {
-              '0%, 100%': { 'background-position': '0% 50%' },
-              '50%': { 'background-position': '100% 50%' },
-            },
-            float: {
-              '0%, 100%': { transform: 'translateY(0)' },
-              '50%': { transform: 'translateY(-10px)' },
-            },
-            fadeUp: {
-              from: { opacity: 0, transform: 'translateY(20px)' },
-              to: { opacity: 1, transform: 'translateY(0)' },
-            },
-          },
-        },
-      },
-    };
-  </script>
-
-  <style>
-    body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0f; color: #fff; }
-    .gradient-text {
-      background: linear-gradient(135deg, #a78bfa 0%, #60a5fa 50%, #f472b6 100%);
-      background-size: 200% 200%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: gradientShift 8s ease infinite;
-    }
-    .gradient-bg {
-      background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
-    }
-    .gradient-bg-soft {
-      background: radial-gradient(ellipse at top, rgba(124, 58, 237, 0.15) 0%, transparent 60%);
-    }
-    .gradient-border {
-      position: relative;
-      background: #14141c;
-    }
-    .gradient-border::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      padding: 1px;
-      background: linear-gradient(135deg, #7c3aed, #2563eb);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-    }
-    .grid-pattern {
-      background-image: radial-gradient(circle, rgba(124, 58, 237, 0.08) 1px, transparent 1px);
-      background-size: 32px 32px;
-    }
-    .scroll-fade-up { opacity: 0; transform: translateY(30px); transition: all 0.7s ease-out; }
-    .scroll-fade-up.visible { opacity: 1; transform: translateY(0); }
-    details > summary { list-style: none; cursor: pointer; }
-    details > summary::-webkit-details-marker { display: none; }
-    details[open] .faq-icon { transform: rotate(45deg); }
-    .faq-icon { transition: transform 0.2s; }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "VidGrab",
-    "applicationCategory": "BrowserApplication",
-    "operatingSystem": "Chrome, Edge, Brave",
-    "description": "Pro video downloader Chrome extension for Vimeo, Bunny.net, HLS streams, MP4 and more. One-time payment, lifetime access.",
-    "offers": {
-      "@type": "Offer",
-      "price": "9.99",
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "120"
-    },
-    "featureList": [
-      "Download from Vimeo, Bunny.net, HLS streams, MP4",
-      "Pay once, own forever - no subscription",
-      "Multi-segment parallel downloads",
-      "100% local processing, zero tracking",
-      "5 free downloads + 3-day unlimited trial",
-      "30-day money-back guarantee"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://vidgrab.app/#organization",
+        "name": "RGC Digital LLC",
+        "alternateName": "VidGrab",
+        "url": "https://vidgrab.app/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://vidgrab.app/assets/apple-touch-icon.png",
+          "width": 180,
+          "height": 180
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "8206 Louisiana Boulevard NE",
+          "addressLocality": "Albuquerque",
+          "addressRegion": "NM",
+          "postalCode": "87113",
+          "addressCountry": "US"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "support@vidgrab.app",
+          "availableLanguage": ["English", "Spanish", "Portuguese", "French", "German"]
+        },
+        "sameAs": []
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://vidgrab.app/#website",
+        "url": "https://vidgrab.app/",
+        "name": "VidGrab",
+        "description": "Pro video downloader Chrome extension. Pay once, own forever.",
+        "publisher": { "@id": "https://vidgrab.app/#organization" },
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://vidgrab.app/#software",
+        "name": "VidGrab",
+        "applicationCategory": "BrowserApplication",
+        "applicationSubCategory": "Video Downloader",
+        "operatingSystem": "Chrome, Edge, Brave, Opera, Vivaldi",
+        "description": "Pro video downloader Chrome extension for Vimeo, Bunny.net, HLS streams, MP4 and more. One-time payment of $9.99 USD for lifetime access. No subscription. 30-day money-back guarantee.",
+        "url": "https://vidgrab.app/",
+        "image": "https://vidgrab.app/assets/og-image.png",
+        "publisher": { "@id": "https://vidgrab.app/#organization" },
+        "offers": {
+          "@type": "Offer",
+          "price": "9.99",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "priceValidUntil": "2027-12-31",
+          "url": "https://vidgrab.app/#pricing"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "120",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "featureList": [
+          "Download from Vimeo, Bunny.net, HLS streams, MP4",
+          "Pay once, own forever, no subscription",
+          "Multi-segment parallel downloads (6x faster)",
+          "100% local processing, zero tracking",
+          "5 free downloads + 3-day unlimited trial",
+          "30-day money-back guarantee",
+          "Available in English, Spanish, Portuguese, French, German"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://vidgrab.app/#faq",
+        "mainEntity": [
+          { "@type": "Question", "name": "Does VidGrab work on YouTube?", "acceptedAnswer": { "@type": "Answer", "text": "No. Chrome Web Store policy bans YouTube downloaders, so VidGrab does not target YouTube. We focus on platforms where downloading your own content is legitimate: Vimeo, Bunny.net, HLS streams, MP4 directs." } },
+          { "@type": "Question", "name": "Does VidGrab bypass DRM?", "acceptedAnswer": { "@type": "Answer", "text": "Never. VidGrab respects all DRM (Widevine, FairPlay, PlayReady) and platform protections. It only downloads videos that are technically downloadable from your browser already, in one click instead of fifteen." } },
+          { "@type": "Question", "name": "Is my data safe?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Everything runs locally in your browser. Zero tracking, zero analytics. The only network call we make is to verify your license with our payment provider (Stripe via ExtensionPay)." } },
+          { "@type": "Question", "name": "What is included in the Free plan?", "acceptedAnswer": { "@type": "Answer", "text": "3 days of unlimited downloads at install (no credit card needed), then 5 free downloads total. After that, Pro is required for unlimited access. The free plan has no feature limits." } },
+          { "@type": "Question", "name": "Can I get a refund?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, 30 days no questions asked. Email support@vidgrab.app from your purchase email and we refund you the same day." } },
+          { "@type": "Question", "name": "Does it work on Mac, Windows, Linux?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, anywhere Chrome (or Edge, Brave, any Chromium browser) runs. No native app required." } },
+          { "@type": "Question", "name": "Do I need to create an account?", "acceptedAnswer": { "@type": "Answer", "text": "No. Free plan is fully anonymous. For Pro, your license is tied to your purchase email and can be restored on any device by entering that email." } },
+          { "@type": "Question", "name": "Why $9.99 lifetime instead of a subscription?", "acceptedAnswer": { "@type": "Answer", "text": "Because we hate subscriptions for utility tools you use occasionally. You buy a hammer once. VidGrab is the same: pay once, archive videos for the next decade if you want." } }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://vidgrab.app/#howto",
+        "name": "How to download videos from any web page with VidGrab",
+        "description": "Three steps from install to first download in under 60 seconds.",
+        "totalTime": "PT1M",
+        "step": [
+          { "@type": "HowToStep", "position": 1, "name": "Install", "text": "Add VidGrab to Chrome from the Web Store. One click. Free." },
+          { "@type": "HowToStep", "position": 2, "name": "Browse", "text": "VidGrab silently detects videos on every page you visit, using network and DOM scanning." },
+          { "@type": "HowToStep", "position": 3, "name": "Download", "text": "Click the download button. Files are saved to your Downloads folder. Multi-segment parallel for HLS and DASH means 6x faster than alternatives." }
+        ]
+      }
     ]
   }
   </script>
 </head>
 
 <body class="antialiased">
+
+<a href="#main-content" class="skip-link">Skip to content</a>
 
 <!-- Nav -->
 <nav class="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-surface-dark/70 border-b border-white/5">
@@ -169,6 +188,8 @@
     </a>
   </div>
 </nav>
+
+<main id="main-content">
 
 <!-- Hero -->
 <section class="relative pt-32 pb-24 overflow-hidden">
@@ -664,30 +685,57 @@
   </div>
 </section>
 
+</main>
+
 <!-- Footer -->
-<footer class="border-t border-white/5 py-12">
+<footer class="border-t border-white/5 py-14" aria-labelledby="footer-heading">
+  <h2 id="footer-heading" class="sr-only">Site footer</h2>
   <div class="max-w-6xl mx-auto px-6">
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
-      <div class="flex items-center gap-2.5">
-        <div class="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M9.5 8.5L16 12L9.5 15.5V8.5Z"/><rect x="2" y="4" width="20" height="16" rx="3" stroke="white" stroke-width="1.5" fill="none"/></svg>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-8 mb-10">
+      <div class="col-span-2">
+        <div class="flex items-center gap-2.5 mb-3">
+          <div class="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M9.5 8.5L16 12L9.5 15.5V8.5Z"/><rect x="2" y="4" width="20" height="16" rx="3" stroke="white" stroke-width="1.5" fill="none"/></svg>
+          </div>
+          <p class="text-base font-bold gradient-text">VidGrab</p>
         </div>
-        <div>
-          <p class="text-sm font-bold gradient-text">VidGrab</p>
-          <p class="text-[10px] text-gray-500">Pro video downloader</p>
-        </div>
+        <p class="text-sm text-gray-400 leading-relaxed max-w-xs">
+          Pro video downloader Chrome extension for Vimeo, Bunny.net, HLS streams and MP4. Pay once, own forever.
+        </p>
       </div>
-      <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-400">
-        <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
-        <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
-        <a href="refund.html" class="hover:text-white transition-colors">Refund policy</a>
-        <a href="support.html" class="hover:text-white transition-colors">Support</a>
-        <a href="mailto:support@vidgrab.app" class="hover:text-white transition-colors">support@vidgrab.app</a>
-      </div>
+
+      <nav aria-label="Product links">
+        <h3 class="text-xs uppercase tracking-wider text-gray-500 font-semibold mb-3">Product</h3>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li><a href="#features" class="hover:text-white transition-colors">Features</a></li>
+          <li><a href="#how-it-works" class="hover:text-white transition-colors">How it works</a></li>
+          <li><a href="#pricing" class="hover:text-white transition-colors">Pricing</a></li>
+          <li><a href="#faq" class="hover:text-white transition-colors">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Resources">
+        <h3 class="text-xs uppercase tracking-wider text-gray-500 font-semibold mb-3">Resources</h3>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li><a href="support.html" class="hover:text-white transition-colors">Support &amp; FAQ</a></li>
+          <li><a href="refund.html" class="hover:text-white transition-colors">Refund policy</a></li>
+          <li><a href="mailto:support@vidgrab.app" class="hover:text-white transition-colors">Email support</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Legal">
+        <h3 class="text-xs uppercase tracking-wider text-gray-500 font-semibold mb-3">Legal</h3>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li><a href="privacy.html" class="hover:text-white transition-colors">Privacy policy</a></li>
+          <li><a href="terms.html" class="hover:text-white transition-colors">Terms of service</a></li>
+          <li><a href="sitemap.xml" class="hover:text-white transition-colors">Sitemap</a></li>
+        </ul>
+      </nav>
     </div>
+
     <div class="pt-6 border-t border-white/5 flex flex-col md:flex-row md:justify-between gap-3 text-xs text-gray-500">
-      <p>© 2026 RGC Digital LLC · Albuquerque, NM USA · All rights reserved.</p>
-      <p>VidGrab does not bypass DRM and respects all platform terms of service.</p>
+      <p>&copy; 2026 RGC Digital LLC &middot; Albuquerque, NM USA &middot; All rights reserved.</p>
+      <p>VidGrab respects all platform terms of service and does not bypass DRM.</p>
     </div>
   </div>
 </footer>

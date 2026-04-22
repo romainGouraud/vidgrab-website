@@ -1,0 +1,4 @@
+Contact: mailto:support@vidgrab.app
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en, fr
+Canonical: https://vidgrab.app/.well-known/security.txt

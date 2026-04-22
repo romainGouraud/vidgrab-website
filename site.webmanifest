@@ -1,0 +1,17 @@
+{
+  "name": "VidGrab",
+  "short_name": "VidGrab",
+  "description": "Pro video downloader for Vimeo, Bunny.net, HLS streams and MP4. Pay once, own forever.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#7c3aed",
+  "icons": [
+    { "src": "/assets/favicon-16.png", "sizes": "16x16", "type": "image/png" },
+    { "src": "/assets/favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "/assets/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/assets/icon-128.png", "sizes": "128x128", "type": "image/png" }
+  ],
+  "lang": "en",
+  "categories": ["productivity", "utilities"]
+}

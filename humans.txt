@@ -1,0 +1,20 @@
+/* TEAM */
+  Founder & Maker: Romain Gouraud
+  Site: https://vidgrab.app
+  Contact: support@vidgrab.app
+  Location: Albuquerque, NM, USA
+
+/* COMPANY */
+  RGC Digital LLC
+  8206 Louisiana Boulevard NE
+  Albuquerque, NM 87113, USA
+
+/* TECHNOLOGY */
+  Extension: Manifest V3, React 19, TypeScript, Vite
+  Site: HTML5, Tailwind CSS, vanilla JavaScript
+  Hosting: GitHub Pages
+  Payments: Stripe via ExtensionPay
+
+/* THANKS */
+  ExtensionPay (Glench) for the elegant MV3 payment library
+  All early adopters who supported the launch

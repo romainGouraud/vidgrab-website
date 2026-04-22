@@ -10,28 +10,12 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0f; color: #e5e7eb; }
-    .gradient-text { background: linear-gradient(135deg, #a78bfa, #60a5fa, #f472b6); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-    .gradient-bg { background: linear-gradient(135deg, #7c3aed, #2563eb); }
-    h2 { font-size: 1.5rem; font-weight: 700; color: white; margin-top: 2.5rem; margin-bottom: 1rem; }
-    h3 { font-size: 1.125rem; font-weight: 600; color: white; margin-top: 1.5rem; margin-bottom: 0.5rem; }
-    p, li { font-size: 0.95rem; line-height: 1.7; color: #9ca3af; margin-bottom: 0.75rem; }
-    ul, ol { padding-left: 1.5rem; margin-bottom: 1rem; }
-    ul { list-style: disc; }
-    ol { list-style: decimal; }
-    a { color: #a78bfa; text-decoration: underline; }
-    a:hover { color: #c4b5fd; }
-    strong { color: white; font-weight: 600; }
-    code { background: #14141c; padding: 2px 6px; border-radius: 4px; font-size: 0.85em; color: #c4b5fd; }
-    details > summary { cursor: pointer; list-style: none; }
-    details > summary::-webkit-details-marker { display: none; }
-    details[open] .icon { transform: rotate(45deg); }
-    .icon { transition: transform 0.2s; }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="site.webmanifest" />
 </head>
 <body class="antialiased">
+
+<a href="#main-content" class="skip-link">Skip to content</a>
 
 <nav class="border-b border-white/5">
   <div class="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -45,7 +29,7 @@
   </div>
 </nav>
 
-<main class="max-w-3xl mx-auto px-6 py-16">
+<main id="main-content" class="prose-vidgrab max-w-3xl mx-auto px-6 py-16">
   <h1 class="text-4xl md:text-5xl font-black mb-3 text-white">Support</h1>
   <p class="text-sm text-gray-500 mb-12">We respond within 24 hours, usually within 2.</p>
 
