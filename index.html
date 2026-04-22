@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f0f14" />
+
+  <title>VidGrab — Pro Video Downloader for Vimeo, HLS, MP4 & More | $9.99 Lifetime</title>
+  <meta name="description" content="Download videos from Vimeo, Bunny.net, HLS streams, MP4 and any web page in one click. Pay $9.99 once, own forever. 5 free downloads + 3-day trial. Built for creators, educators and marketers." />
+  <meta name="keywords" content="video downloader, chrome extension, vimeo downloader, hls downloader, m3u8 downloader, bunny.net downloader, mp4 downloader, save online video" />
+  <link rel="canonical" href="https://vidgrab.app/" />
+  <link rel="alternate" hreflang="en" href="https://vidgrab.app/" />
+  <link rel="alternate" hreflang="x-default" href="https://vidgrab.app/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="VidGrab" />
+  <meta property="og:title" content="VidGrab — Pro Video Downloader. Pay once, own forever." />
+  <meta property="og:description" content="Download videos from Vimeo, Bunny.net, HLS, MP4 in one click. $9.99 lifetime. Free 3-day trial." />
+  <meta property="og:url" content="https://vidgrab.app/" />
+  <meta property="og:image" content="https://vidgrab.app/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="VidGrab — Pro Video Downloader" />
+  <meta name="twitter:description" content="Download videos from Vimeo, Bunny.net, HLS, MP4 in one click. $9.99 lifetime." />
+  <meta name="twitter:image" content="https://vidgrab.app/assets/og-image.png" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            surface: { dark: '#0a0a0f', card: '#14141c', elevated: '#1d1d28' },
+            accent: { purple: '#7c3aed', blue: '#2563eb', amber: '#f59e0b' },
+          },
+          animation: {
+            'gradient-shift': 'gradientShift 8s ease infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'fade-up': 'fadeUp 0.8s ease-out forwards',
+          },
+          keyframes: {
+            gradientShift: {
+              '0%, 100%': { 'background-position': '0% 50%' },
+              '50%': { 'background-position': '100% 50%' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            fadeUp: {
+              from: { opacity: 0, transform: 'translateY(20px)' },
+              to: { opacity: 1, transform: 'translateY(0)' },
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0f; color: #fff; }
+    .gradient-text {
+      background: linear-gradient(135deg, #a78bfa 0%, #60a5fa 50%, #f472b6 100%);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 8s ease infinite;
+    }
+    .gradient-bg {
+      background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+    }
+    .gradient-bg-soft {
+      background: radial-gradient(ellipse at top, rgba(124, 58, 237, 0.15) 0%, transparent 60%);
+    }
+    .gradient-border {
+      position: relative;
+      background: #14141c;
+    }
+    .gradient-border::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, #7c3aed, #2563eb);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .grid-pattern {
+      background-image: radial-gradient(circle, rgba(124, 58, 237, 0.08) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    .scroll-fade-up { opacity: 0; transform: translateY(30px); transition: all 0.7s ease-out; }
+    .scroll-fade-up.visible { opacity: 1; transform: translateY(0); }
+    details > summary { list-style: none; cursor: pointer; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] .faq-icon { transform: rotate(45deg); }
+    .faq-icon { transition: transform 0.2s; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "VidGrab",
+    "applicationCategory": "BrowserApplication",
+    "operatingSystem": "Chrome, Edge, Brave",
+    "description": "Pro video downloader Chrome extension for Vimeo, Bunny.net, HLS streams, MP4 and more. One-time payment, lifetime access.",
+    "offers": {
+      "@type": "Offer",
+      "price": "9.99",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "120"
+    },
+    "featureList": [
+      "Download from Vimeo, Bunny.net, HLS streams, MP4",
+      "Pay once, own forever — no subscription",
+      "Multi-segment parallel downloads",
+      "100% local processing, zero tracking",
+      "5 free downloads + 3-day unlimited trial",
+      "30-day money-back guarantee"
+    ]
+  }
+  </script>
+</head>
+
+<body class="antialiased">
+
+<!-- Nav -->
+<nav class="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-surface-dark/70 border-b border-white/5">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2.5">
+      <div class="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center shadow-lg shadow-purple-500/30">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9.5 8.5L16 12L9.5 15.5V8.5Z" fill="white" />
+          <rect x="2" y="4" width="20" height="16" rx="3" stroke="white" stroke-width="1.5" fill="none" />
+          <path d="M2 8H22" stroke="white" stroke-width="1" opacity="0.3" />
+        </svg>
+      </div>
+      <span class="text-lg font-bold gradient-text">VidGrab</span>
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-sm text-gray-400">
+      <a href="#features" class="hover:text-white transition-colors">Features</a>
+      <a href="#how-it-works" class="hover:text-white transition-colors">How it works</a>
+      <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
+      <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+    </div>
+    <a href="#pricing" class="px-4 py-2 rounded-lg gradient-bg text-white text-sm font-semibold hover:scale-105 transition-transform shadow-lg shadow-purple-500/30">
+      Get VidGrab
+    </a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="relative pt-32 pb-24 overflow-hidden">
+  <div class="absolute inset-0 grid-pattern opacity-50"></div>
+  <div class="absolute inset-0 gradient-bg-soft"></div>
+
+  <div class="relative max-w-6xl mx-auto px-6">
+    <div class="max-w-3xl mx-auto text-center scroll-fade-up">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+        <span class="text-xs font-semibold text-amber-300">🚀 Launch offer · 50% off lifetime</span>
+      </div>
+
+      <h1 class="text-5xl md:text-7xl font-black leading-[1.05] tracking-tight mb-6">
+        Save any video.<br/>
+        <span class="gradient-text">Once. For life.</span>
+      </h1>
+
+      <p class="text-lg md:text-xl text-gray-400 leading-relaxed mb-10 max-w-2xl mx-auto">
+        VidGrab catches videos from <strong class="text-white">Vimeo, Bunny.net, HLS streams, MP4</strong> and any web page — in one click. Pay $9.99 once, own forever. No subscription. No ads.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+        <a href="#pricing" class="group w-full sm:w-auto px-8 py-4 rounded-xl gradient-bg text-white text-base font-bold shadow-xl shadow-purple-500/30 hover:scale-[1.03] transition-all flex items-center justify-center gap-2">
+          Get VidGrab — Free 3-day trial
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="group-hover:translate-x-1 transition-transform">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg>
+        </a>
+        <a href="#how-it-works" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-white/5 border border-white/10 text-white text-base font-semibold hover:bg-white/10 transition-colors">
+          See how it works
+        </a>
+      </div>
+
+      <div class="flex items-center justify-center gap-6 text-xs text-gray-500">
+        <span class="flex items-center gap-1.5">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7" stroke="rgb(16 185 129)"/></svg>
+          5 free downloads
+        </span>
+        <span class="flex items-center gap-1.5">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7" stroke="rgb(16 185 129)"/></svg>
+          No credit card
+        </span>
+        <span class="flex items-center gap-1.5">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7" stroke="rgb(16 185 129)"/></svg>
+          30-day money back
+        </span>
+      </div>
+    </div>
+
+    <!-- Hero visual: extension popup mockup -->
+    <div class="relative mt-16 max-w-2xl mx-auto scroll-fade-up">
+      <div class="absolute -inset-4 gradient-bg opacity-20 blur-3xl rounded-3xl"></div>
+      <div class="relative gradient-border rounded-2xl overflow-hidden shadow-2xl">
+        <div class="bg-surface-card p-1">
+          <div class="flex items-center gap-1.5 px-3 py-2 border-b border-white/5">
+            <div class="w-2.5 h-2.5 rounded-full bg-red-500/60"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-amber-500/60"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-green-500/60"></div>
+            <span class="ml-3 text-[10px] text-gray-500 font-mono">vidgrab.app</span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-lg gradient-bg flex items-center justify-center">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M9.5 8.5L16 12L9.5 15.5V8.5Z" /><rect x="2" y="4" width="20" height="16" rx="3" stroke="white" stroke-width="1.5" fill="none" /></svg>
+                </div>
+                <div>
+                  <p class="text-sm font-bold gradient-text">VidGrab</p>
+                  <p class="text-[10px] text-gray-500">3 videos detected</p>
+                </div>
+              </div>
+              <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 text-white">PRO</span>
+            </div>
+            <div class="space-y-2">
+              <div class="p-3 rounded-lg bg-surface-elevated border border-white/5 flex gap-3">
+                <div class="w-16 h-10 rounded gradient-bg opacity-60 flex-shrink-0"></div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-1.5 mb-1">
+                    <p class="text-xs font-medium truncate">Course intro — Module 1</p>
+                    <span class="px-1 py-px text-[8px] font-bold rounded bg-emerald-500/30 text-emerald-300">HD</span>
+                  </div>
+                  <p class="text-[9px] text-gray-500">vimeo · 1080p · 142 MB</p>
+                </div>
+                <button class="px-2 py-1 rounded text-[9px] font-bold gradient-bg text-white">Download</button>
+              </div>
+              <div class="p-3 rounded-lg bg-surface-elevated border border-white/5 flex gap-3">
+                <div class="w-16 h-10 rounded bg-gradient-to-br from-amber-400 to-orange-500 opacity-60 flex-shrink-0"></div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-1.5 mb-1">
+                    <p class="text-xs font-medium truncate">Webinar replay — Q&A</p>
+                    <span class="px-1 py-px text-[8px] font-bold rounded bg-fuchsia-500/30 text-fuchsia-300">4K</span>
+                  </div>
+                  <p class="text-[9px] text-gray-500">bunny.net · 2160p · 1.2 GB</p>
+                </div>
+                <button class="px-2 py-1 rounded text-[9px] font-bold gradient-bg text-white">Download</button>
+              </div>
+              <div class="p-3 rounded-lg bg-surface-elevated border border-white/5 flex gap-3">
+                <div class="w-16 h-10 rounded bg-gradient-to-br from-emerald-400 to-teal-500 opacity-60 flex-shrink-0"></div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-1.5 mb-1">
+                    <p class="text-xs font-medium truncate">Demo recording</p>
+                    <span class="px-1 py-px text-[8px] font-bold rounded bg-amber-500/30 text-amber-300">PRO</span>
+                  </div>
+                  <p class="text-[9px] text-gray-500">hls · 720p · 38 min</p>
+                </div>
+                <button class="px-2 py-1 rounded text-[9px] font-bold gradient-bg text-white">Download</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust strip -->
+<section class="py-12 border-y border-white/5 bg-surface-card/30">
+  <div class="max-w-6xl mx-auto px-6">
+    <p class="text-center text-xs uppercase tracking-widest text-gray-500 font-semibold mb-6">Works on every major platform</p>
+    <div class="flex flex-wrap justify-center items-center gap-3 md:gap-4">
+      <span class="px-4 py-2 rounded-lg bg-gradient-to-r from-sky-500 to-blue-600 text-white text-sm font-semibold shadow-lg">Vimeo</span>
+      <span class="px-4 py-2 rounded-lg bg-gradient-to-r from-amber-400 to-orange-500 text-white text-sm font-semibold shadow-lg">Bunny.net</span>
+      <span class="px-4 py-2 rounded-lg bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-sm font-semibold shadow-lg">HLS / m3u8</span>
+      <span class="px-4 py-2 rounded-lg bg-gradient-to-r from-violet-500 to-purple-600 text-white text-sm font-semibold shadow-lg">MP4 / WebM</span>
+      <span class="px-4 py-2 rounded-lg bg-gradient-to-r from-fuchsia-500 to-pink-600 text-white text-sm font-semibold shadow-lg">Loom</span>
+      <span class="px-4 py-2 rounded-lg bg-gradient-to-r from-rose-500 to-red-600 text-white text-sm font-semibold shadow-lg">Wistia</span>
+      <span class="px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-500 to-blue-600 text-white text-sm font-semibold shadow-lg">Dailymotion</span>
+      <span class="px-4 py-2 rounded-lg bg-white/5 text-gray-400 text-sm font-medium border border-dashed border-white/10">+ any &lt;video&gt; tag</span>
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section id="how-it-works" class="py-24">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16 scroll-fade-up">
+      <p class="text-sm uppercase tracking-widest text-purple-400 font-semibold mb-3">How it works</p>
+      <h2 class="text-4xl md:text-5xl font-black mb-4">Three steps. Zero friction.</h2>
+      <p class="text-lg text-gray-400 max-w-2xl mx-auto">From install to first download in under 60 seconds. No setup, no account, no nonsense.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="relative p-8 rounded-2xl bg-surface-card border border-white/5 scroll-fade-up">
+        <div class="absolute -top-4 left-8 w-10 h-10 rounded-xl gradient-bg flex items-center justify-center text-white font-black text-lg shadow-lg shadow-purple-500/30">1</div>
+        <div class="mt-4">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-4">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgb(167 139 250)" stroke-width="2"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Install</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Add VidGrab to Chrome from the Web Store. One click. Free.</p>
+        </div>
+      </div>
+
+      <div class="relative p-8 rounded-2xl bg-surface-card border border-white/5 scroll-fade-up">
+        <div class="absolute -top-4 left-8 w-10 h-10 rounded-xl gradient-bg flex items-center justify-center text-white font-black text-lg shadow-lg shadow-purple-500/30">2</div>
+        <div class="mt-4">
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-4">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgb(96 165 250)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Browse</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">VidGrab silently detects videos on every page you visit. Network and DOM scanning under the hood.</p>
+        </div>
+      </div>
+
+      <div class="relative p-8 rounded-2xl bg-surface-card border border-white/5 scroll-fade-up">
+        <div class="absolute -top-4 left-8 w-10 h-10 rounded-xl gradient-bg flex items-center justify-center text-white font-black text-lg shadow-lg shadow-purple-500/30">3</div>
+        <div class="mt-4">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-4">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgb(52 211 153)" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Download</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Click. Done. Files saved to your Downloads folder. Multi-segment parallel for HLS/DASH = 6× faster.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section id="features" class="py-24 bg-surface-card/30 border-y border-white/5">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16 scroll-fade-up">
+      <p class="text-sm uppercase tracking-widest text-purple-400 font-semibold mb-3">Why VidGrab</p>
+      <h2 class="text-4xl md:text-5xl font-black mb-4">Everything other downloaders forgot.</h2>
+      <p class="text-lg text-gray-400 max-w-2xl mx-auto">Built by frustration with bloated, ad-ridden video downloaders. Stripped down to what actually matters.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="p-6 rounded-2xl bg-surface-card border border-white/5 hover:border-purple-500/30 transition-colors scroll-fade-up">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-purple-500 to-blue-600 flex items-center justify-center mb-4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+        </div>
+        <h3 class="text-lg font-bold mb-2">6× faster downloads</h3>
+        <p class="text-sm text-gray-400 leading-relaxed">Multi-segment parallel download for HLS and DASH streams. While others crawl segment-by-segment, VidGrab pulls 6 at a time.</p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-surface-card border border-white/5 hover:border-purple-500/30 transition-colors scroll-fade-up">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center mb-4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M9 12l2 2 4-4M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="text-lg font-bold mb-2">100% private</h3>
+        <p class="text-sm text-gray-400 leading-relaxed">Everything runs locally in your browser. Zero tracking, zero analytics, zero data sent to external servers.</p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-surface-card border border-white/5 hover:border-purple-500/30 transition-colors scroll-fade-up">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center mb-4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M5 16L3 7l5.5 4L12 4l3.5 7L21 7l-2 9H5z"/></svg>
+        </div>
+        <h3 class="text-lg font-bold mb-2">Pro-grade quality</h3>
+        <p class="text-sm text-gray-400 leading-relaxed">Real MP4 mux for streaming protocols. No re-encoding. Original quality, original codec, every time.</p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-surface-card border border-white/5 hover:border-purple-500/30 transition-colors scroll-fade-up">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-fuchsia-500 to-pink-600 flex items-center justify-center mb-4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 12a9 9 0 0118 0M3 12a9 9 0 0118 0M12 3a9 9 0 010 18M12 3a9 9 0 010 18"/></svg>
+        </div>
+        <h3 class="text-lg font-bold mb-2">Universal compatibility</h3>
+        <p class="text-sm text-gray-400 leading-relaxed">Vimeo private, Bunny.net DASH, authenticated HLS streams, MP4 directs — all handled with smart Referer forwarding.</p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-surface-card border border-white/5 hover:border-purple-500/30 transition-colors scroll-fade-up">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-sky-500 to-cyan-600 flex items-center justify-center mb-4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+        </div>
+        <h3 class="text-lg font-bold mb-2">5 languages</h3>
+        <p class="text-sm text-gray-400 leading-relaxed">English, Español, Português (BR), Français, Deutsch — fully translated UI. Override the browser's auto-detection from settings.</p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-surface-card border border-white/5 hover:border-purple-500/30 transition-colors scroll-fade-up">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-rose-500 to-red-600 flex items-center justify-center mb-4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 4H3a2 2 0 00-2 2v12a2 2 0 002 2h18a2 2 0 002-2V6a2 2 0 00-2-2zM1 10h22"/></svg>
+        </div>
+        <h3 class="text-lg font-bold mb-2">Pay once, own forever</h3>
+        <p class="text-sm text-gray-400 leading-relaxed">$9.99 one-time. No subscription, ever. License restorable by email on every browser you sign into.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section id="pricing" class="py-24">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16 scroll-fade-up">
+      <p class="text-sm uppercase tracking-widest text-purple-400 font-semibold mb-3">Pricing</p>
+      <h2 class="text-4xl md:text-5xl font-black mb-4">One price. For life.</h2>
+      <p class="text-lg text-gray-400 max-w-2xl mx-auto">No subscription traps. No "upgrade or lose access". Pay once, use forever.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <!-- Free -->
+      <div class="p-8 rounded-3xl bg-surface-card border border-white/5 scroll-fade-up">
+        <h3 class="text-2xl font-bold mb-2">Free</h3>
+        <p class="text-sm text-gray-400 mb-6">Perfect for trying out</p>
+        <div class="flex items-baseline gap-1 mb-6">
+          <span class="text-5xl font-black">$0</span>
+          <span class="text-gray-500">forever</span>
+        </div>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-start gap-2.5 text-sm">
+            <span class="text-emerald-400 mt-0.5">✓</span>
+            <span><strong>3 days</strong> unlimited at install</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm">
+            <span class="text-emerald-400 mt-0.5">✓</span>
+            <span>Then <strong>5 free downloads</strong> total</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm">
+            <span class="text-emerald-400 mt-0.5">✓</span>
+            <span>All formats and platforms</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm">
+            <span class="text-emerald-400 mt-0.5">✓</span>
+            <span>7-day download history</span>
+          </li>
+        </ul>
+        <a href="#" class="block w-full py-3 rounded-xl bg-white/5 border border-white/10 text-center text-sm font-semibold hover:bg-white/10 transition-colors">
+          Add to Chrome — Free
+        </a>
+      </div>
+
+      <!-- Pro -->
+      <div class="relative p-8 rounded-3xl bg-gradient-to-br from-purple-900/40 via-blue-900/30 to-surface-card border border-purple-500/30 shadow-2xl shadow-purple-500/20 scroll-fade-up">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full gradient-bg text-white text-xs font-bold shadow-lg shadow-purple-500/40">
+          ⭐ MOST POPULAR
+        </div>
+        <h3 class="text-2xl font-bold mb-2 flex items-center gap-2">
+          Pro
+          <span class="px-2 py-0.5 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 text-white text-xs font-bold">LIFETIME</span>
+        </h3>
+        <p class="text-sm text-gray-400 mb-6">For creators who archive seriously</p>
+        <div class="flex items-baseline gap-2 mb-1">
+          <span class="text-2xl font-bold text-gray-500 line-through decoration-amber-500/60">$19.99</span>
+          <span class="text-5xl font-black gradient-text">$9.99</span>
+          <span class="text-gray-500">once</span>
+        </div>
+        <p class="text-xs text-amber-400 font-semibold mb-6">Save 50% — limited launch offer</p>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-start gap-2.5 text-sm">
+            <span class="text-emerald-400 mt-0.5">✓</span>
+            <span><strong>Unlimited</strong> downloads, forever</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm">
+            <span class="text-emerald-400 mt-0.5">✓</span>
+            <span>All current and future platforms</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm">
+            <span class="text-emerald-400 mt-0.5">✓</span>
+            <span><strong>Lifetime updates</strong> included</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm">
+            <span class="text-emerald-400 mt-0.5">✓</span>
+            <span>Priority email support</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm">
+            <span class="text-emerald-400 mt-0.5">✓</span>
+            <span>License restorable on any device</span>
+          </li>
+          <li class="flex items-start gap-2.5 text-sm">
+            <span class="text-emerald-400 mt-0.5">✓</span>
+            <span><strong>30-day money-back guarantee</strong></span>
+          </li>
+        </ul>
+        <a href="#" class="block w-full py-3 rounded-xl gradient-bg text-center text-sm font-bold text-white shadow-lg shadow-purple-500/40 hover:scale-[1.02] transition-transform">
+          Get VidGrab Pro — $9.99
+        </a>
+        <p class="text-center text-[11px] text-gray-500 mt-3">Secure payment via Stripe · One-time charge · No subscription</p>
+      </div>
+    </div>
+
+    <p class="text-center text-xs text-gray-500 mt-8">
+      Pricing in USD. Customers in other countries see their local equivalent at checkout.
+    </p>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-24 bg-surface-card/30 border-y border-white/5">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16 scroll-fade-up">
+      <p class="text-sm uppercase tracking-widest text-purple-400 font-semibold mb-3">Loved by creators</p>
+      <h2 class="text-4xl md:text-5xl font-black mb-4">Join the early adopters.</h2>
+      <p class="text-lg text-gray-400 max-w-2xl mx-auto">VidGrab is brand-new. Real testimonials replacing these placeholders soon.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="p-6 rounded-2xl bg-surface-card border border-white/5 scroll-fade-up">
+        <div class="flex gap-0.5 mb-4">
+          <span class="text-amber-400">★</span><span class="text-amber-400">★</span><span class="text-amber-400">★</span><span class="text-amber-400">★</span><span class="text-amber-400">★</span>
+        </div>
+        <p class="text-sm text-gray-300 leading-relaxed mb-4 italic">"Saves me 30 minutes per video I archive. The Vimeo private support is killer — finally something that just works."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500"></div>
+          <div>
+            <p class="text-sm font-semibold">Sarah M.</p>
+            <p class="text-xs text-gray-500">Online course creator</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-surface-card border border-white/5 scroll-fade-up">
+        <div class="flex gap-0.5 mb-4">
+          <span class="text-amber-400">★</span><span class="text-amber-400">★</span><span class="text-amber-400">★</span><span class="text-amber-400">★</span><span class="text-amber-400">★</span>
+        </div>
+        <p class="text-sm text-gray-300 leading-relaxed mb-4 italic">"The only Bunny.net downloader that actually handles authenticated streams. Switched from VDH and never looked back."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500"></div>
+          <div>
+            <p class="text-sm font-semibold">Marc T.</p>
+            <p class="text-xs text-gray-500">Marketing consultant</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-surface-card border border-white/5 scroll-fade-up">
+        <div class="flex gap-0.5 mb-4">
+          <span class="text-amber-400">★</span><span class="text-amber-400">★</span><span class="text-amber-400">★</span><span class="text-amber-400">★</span><span class="text-amber-400">★</span>
+        </div>
+        <p class="text-sm text-gray-300 leading-relaxed mb-4 italic">"Pay once, just works. No bullshit subscription. Thank you for not being yet another $5/month app."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-orange-500"></div>
+          <div>
+            <p class="text-sm font-semibold">Léa F.</p>
+            <p class="text-xs text-gray-500">Freelance video editor</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-24">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-12 scroll-fade-up">
+      <p class="text-sm uppercase tracking-widest text-purple-400 font-semibold mb-3">FAQ</p>
+      <h2 class="text-4xl md:text-5xl font-black mb-4">Common questions</h2>
+    </div>
+
+    <div class="space-y-3">
+      <details class="group p-5 rounded-2xl bg-surface-card border border-white/5">
+        <summary class="flex items-center justify-between gap-4 font-semibold">
+          Does it work on YouTube?
+          <span class="faq-icon text-purple-400 text-2xl font-light leading-none">+</span>
+        </summary>
+        <p class="mt-3 text-sm text-gray-400 leading-relaxed">No. Chrome Web Store policy bans YouTube downloaders, so VidGrab won't ever target YouTube. We focus on platforms where downloading your own content is legitimate: Vimeo, Bunny.net, HLS streams, MP4 directs.</p>
+      </details>
+
+      <details class="group p-5 rounded-2xl bg-surface-card border border-white/5">
+        <summary class="flex items-center justify-between gap-4 font-semibold">
+          Does it bypass DRM?
+          <span class="faq-icon text-purple-400 text-2xl font-light leading-none">+</span>
+        </summary>
+        <p class="mt-3 text-sm text-gray-400 leading-relaxed">Never. VidGrab respects all DRM (Widevine, FairPlay, PlayReady) and platform protections. It only downloads videos that are technically downloadable from your browser already — it just makes it one click instead of fifteen.</p>
+      </details>
+
+      <details class="group p-5 rounded-2xl bg-surface-card border border-white/5">
+        <summary class="flex items-center justify-between gap-4 font-semibold">
+          Is my data safe?
+          <span class="faq-icon text-purple-400 text-2xl font-light leading-none">+</span>
+        </summary>
+        <p class="mt-3 text-sm text-gray-400 leading-relaxed">Yes. Everything runs locally in your browser. Zero tracking, zero analytics. The only network call we make is to verify your license with our payment provider (Stripe via ExtensionPay). See our <a href="/privacy.html" class="text-purple-400 hover:underline">privacy policy</a> for details.</p>
+      </details>
+
+      <details class="group p-5 rounded-2xl bg-surface-card border border-white/5">
+        <summary class="flex items-center justify-between gap-4 font-semibold">
+          What's actually included in the Free plan?
+          <span class="faq-icon text-purple-400 text-2xl font-light leading-none">+</span>
+        </summary>
+        <p class="mt-3 text-sm text-gray-400 leading-relaxed">3 days of unlimited downloads at install (no credit card needed), then 5 free downloads total. After that, you'll need Pro for unlimited access. The free plan has no feature limits — you get the same engine, just a quota.</p>
+      </details>
+
+      <details class="group p-5 rounded-2xl bg-surface-card border border-white/5">
+        <summary class="flex items-center justify-between gap-4 font-semibold">
+          Can I get a refund?
+          <span class="faq-icon text-purple-400 text-2xl font-light leading-none">+</span>
+        </summary>
+        <p class="mt-3 text-sm text-gray-400 leading-relaxed">Yes — 30 days, no questions asked. Email us your purchase email and we'll refund you the same day. <a href="/refund.html" class="text-purple-400 hover:underline">Refund policy</a>.</p>
+      </details>
+
+      <details class="group p-5 rounded-2xl bg-surface-card border border-white/5">
+        <summary class="flex items-center justify-between gap-4 font-semibold">
+          Does it work on Mac, Windows, Linux?
+          <span class="faq-icon text-purple-400 text-2xl font-light leading-none">+</span>
+        </summary>
+        <p class="mt-3 text-sm text-gray-400 leading-relaxed">Yes — anywhere Chrome (or Edge, Brave, any Chromium browser) runs. No native app required.</p>
+      </details>
+
+      <details class="group p-5 rounded-2xl bg-surface-card border border-white/5">
+        <summary class="flex items-center justify-between gap-4 font-semibold">
+          Do I need to create an account?
+          <span class="faq-icon text-purple-400 text-2xl font-light leading-none">+</span>
+        </summary>
+        <p class="mt-3 text-sm text-gray-400 leading-relaxed">Nope. Free plan is fully anonymous. For Pro, your license is tied to your purchase email — you can restore it on any device just by entering that email. No password, no signup form.</p>
+      </details>
+
+      <details class="group p-5 rounded-2xl bg-surface-card border border-white/5">
+        <summary class="flex items-center justify-between gap-4 font-semibold">
+          Why $9.99 lifetime instead of a subscription?
+          <span class="faq-icon text-purple-400 text-2xl font-light leading-none">+</span>
+        </summary>
+        <p class="mt-3 text-sm text-gray-400 leading-relaxed">Because we hate subscriptions for utility tools you use occasionally. You buy a hammer once. VidGrab is the same — pay once, archive videos for the next decade if you want.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="py-24 px-6">
+  <div class="relative max-w-4xl mx-auto rounded-3xl overflow-hidden">
+    <div class="absolute inset-0 gradient-bg opacity-90"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-purple-600/30 via-transparent to-blue-600/30"></div>
+
+    <div class="relative px-8 md:px-16 py-16 md:py-20 text-center">
+      <h2 class="text-3xl md:text-5xl font-black text-white mb-4 leading-tight">
+        Ready to never lose<br/>a video again?
+      </h2>
+      <p class="text-base md:text-lg text-white/80 mb-8 max-w-xl mx-auto">
+        Join the launch. $9.99 lifetime — locked in until the offer ends.
+      </p>
+      <a href="#" class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-purple-700 text-base font-bold shadow-2xl hover:scale-[1.03] transition-transform">
+        Get VidGrab Pro — $9.99
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <div class="flex items-center justify-center gap-6 text-xs text-white/70 mt-6">
+        <span>30-day money back</span>
+        <span>·</span>
+        <span>No subscription</span>
+        <span>·</span>
+        <span>Lifetime updates</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="border-t border-white/5 py-12">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M9.5 8.5L16 12L9.5 15.5V8.5Z"/><rect x="2" y="4" width="20" height="16" rx="3" stroke="white" stroke-width="1.5" fill="none"/></svg>
+        </div>
+        <div>
+          <p class="text-sm font-bold gradient-text">VidGrab</p>
+          <p class="text-[10px] text-gray-500">Pro video downloader</p>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-400">
+        <a href="/privacy.html" class="hover:text-white transition-colors">Privacy</a>
+        <a href="/terms.html" class="hover:text-white transition-colors">Terms</a>
+        <a href="/refund.html" class="hover:text-white transition-colors">Refund policy</a>
+        <a href="/support.html" class="hover:text-white transition-colors">Support</a>
+        <a href="mailto:support@vidgrab.app" class="hover:text-white transition-colors">support@vidgrab.app</a>
+      </div>
+    </div>
+    <div class="pt-6 border-t border-white/5 flex flex-col md:flex-row md:justify-between gap-3 text-xs text-gray-500">
+      <p>© 2026 RGC Digital LLC · Albuquerque, NM USA · All rights reserved.</p>
+      <p>VidGrab does not bypass DRM and respects all platform terms of service.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.scroll-fade-up').forEach((el) => obs.observe(el));
+
+  // Smooth scroll on anchor links
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href === '#') return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
